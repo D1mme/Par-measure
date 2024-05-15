@@ -4,16 +4,16 @@
 %           Some more details can be found in [2, 3, 4, 5]
 %
 %Usage:     Initialize the class as:
-%               par_measure = Par_measure(Fs, Tframe, x_ref, x_dB_ref, F_cal, Ng)
+%               Par_measure = par_measure(Fs, Tframe, x_ref, x_dB_ref, F_cal, Ng)
 %           Compute the masking curves as:       
 %               [maskcurve, maskcurve_spl, p_par] = par_measure.comp_maskcurve(masker)
 %           Plot the masking curve as:           
-%               par_measure.plot_maskcurve(masker)
+%               Par_measure.plot_maskcurve(masker)
 %           Plot the masking curve and the disturbance as               
-%               par_measure.plot_maskcurve(masker, disturbance)
+%               Par_measure.plot_maskcurve(masker, disturbance)
 %           Compute the digital representation amplitude given a physical representation amplitude (in dB SPL) and vice versa using: 
-%               amplitude_digital = par_measure.physical_to_digital(amplitude_physical)
-%               amplitude_physical = par_measure.digital_to_physical(amplitude_digital) 
+%               amplitude_digital = Par_measure.physical_to_digital(amplitude_physical)
+%               amplitude_physical = Par_measure.digital_to_physical(amplitude_digital) 
 %
 %Inputs:        Fs:         [Hz], sample frequency              
 %               Tframe:     [s], the time of the zero-padded segmentation window                        (typically 20 to 40 ms)
@@ -43,7 +43,7 @@
 %   Anyway, through comparison with the plots in [1] and by listening to signals predicted to have an inaudible or only slightly audible distortion, 
 %   I feel like the implementation is at least mostly correct and usefull as a predictor of distortions.
 
-classdef Par_measure
+classdef par_measure
     properties
         Fs                      %[Hz], sample frequency
         Tframe                  %[s], the time of the zero-padded segmentation window
@@ -61,7 +61,7 @@ classdef Par_measure
     end
         
     methods
-        function obj = Par_measure(Fs, Tframe, x_ref, x_dB_ref, F_cal, Ng)
+        function obj = par_measure(Fs, Tframe, x_ref, x_dB_ref, F_cal, Ng)
             if nargin == 0
                 obj.Fs = 48000;
                 obj.Tframe = 0.4;              
