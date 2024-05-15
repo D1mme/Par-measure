@@ -4,9 +4,9 @@ In particular, this code reflects my interpretation of the distortion measure pr
 
 Concretely, consider an actual acoustic signal $s$ and a reference acoustic signal $s^\star$. The difference between the two signals is $\epsilon=s-s^\star$. The Par-measure computes the distortion as
 
-$$ D(s, \epsilon) = d $$
+$$ D(s, \epsilon) = d $$.
 
-If $d \leq 1$, it is predicted that a human observer cannot notice the difference between $s$ and $s^\star=s-\epsilon$ in the presence of $s$. The coustic signal $s$, which limits the audibility of the distortion, is called the masker. The Par-measure operates in the frequency domain on short-time frames of about 20 to 40 ms [1].
+If $d \leq 1$, it is predicted that a human observer can not notice the difference between $s$ and $s^\star=s-\epsilon$ in the presence of $s$. The acoustic signal $s$, which limits the audibility of the distortion, is called the masker. The Par-measure operates in the frequency domain on short-time frames of about 20 to 40 ms [1].
 
 This repository includes:
 - The code which can be used to compute the masking curves;
