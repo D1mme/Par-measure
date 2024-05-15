@@ -14,10 +14,6 @@ This repository includes:
 - The MATLAB code ``example1_basics.m``, which shows the functionality of the code;
 - TO BE ADDED IN THE NEAR FUTURE The MATLAB code ``example2_loudness_increase.m``, which uses the Par-measure to increase the loudness of acoustic signals while keeping the perceived distortion limited. This example is directly based on the work done by Jeannerot et al. in [2] and, in my opinion, is a very nice example of how to use the Par-measure inside an optimisation framework.
 
-[1] van de Par, S., Kohlrausch, A., Heusdens, R. et al. A Perceptual Model for Sinusoidal Audio Coding Based on Spectral Integration. EURASIP J. Adv. Signal Process. 2005, 317529 (2005). https://doi.org/10.1155/ASP.2005.1292
-
-[2] A. Jeannerot, N. de Koeijer, P. Martínez-Nuevo, M. B. Møller, J. Dyreby and P. Prandoni, "Increasing Loudness in Audio Signals: A Perceptually Motivated Approach to Preserve Audio Quality," ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Singapore, Singapore, 2022, pp. 1001-1005, doi: 10.1109/ICASSP43922.2022.9747589. 
-
 ## Contact
 Feel free to leave a message in case you have questions, find mistakes, or have any other comments! You can either use the GitHub or send an E-mail to d.c.c.j.degroot@tudelft.nl. 
 
@@ -29,4 +25,7 @@ To run Example 2, you need [CVX](https://cvxr.com/cvx/). It should be straightfo
 ## Keywords
 Acoustic signal processing, perceptual distortion, distortion measure, Par-measure, psychoacoustical modelling, auditory masking
 
+## Bibiliography
+[1] van de Par, S., Kohlrausch, A., Heusdens, R. et al. A Perceptual Model for Sinusoidal Audio Coding Based on Spectral Integration. EURASIP J. Adv. Signal Process. 2005, 317529 (2005). https://doi.org/10.1155/ASP.2005.1292
 
+[2] A. Jeannerot, N. de Koeijer, P. Martínez-Nuevo, M. B. Møller, J. Dyreby and P. Prandoni, "Increasing Loudness in Audio Signals: A Perceptually Motivated Approach to Preserve Audio Quality," ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Singapore, Singapore, 2022, pp. 1001-1005, doi: 10.1109/ICASSP43922.2022.9747589. 
