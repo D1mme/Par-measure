@@ -10,7 +10,7 @@ If $d \leq 1$, it is predicted that a human observer cannot notice the differenc
 
 This repository includes:
 - The code which can be used to compute the masking curves;
-- DRAFT A report which briefly explains the background of the Par-measure, the functionality of the code and the provided examples;https://scite.ai/reports/10.1155/asp.2005.1292
+- DRAFT A report which briefly explains the background of the Par-measure, the functionality of the code and the provided examples;
 - Example 1, which shows the functionality of the code;
 - TO BE ADDED IN THE NEAR FUTURE Example 2, which uses the Par-measure to increase the loudness of acoustic signals while keeping the perceived distortion limited. This example is directly based on the work done by Jeannerot et al. in [2] and, in my opinion, is a very nice example of how to use the Par-measure inside an optimisation framework.
 
