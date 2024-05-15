@@ -11,8 +11,8 @@ If $d \leq 1$, it is predicted that a human observer can not notice the differen
 This repository includes:
 - DRAFT A report which briefly explains the background of the Par-measure, the functionality of the code and the provided examples;
 - The MATLAB code ``par_measure.m`` which can be used to compute the masking curves;
-- Example 1, which shows the functionality of the code;
-- TO BE ADDED IN THE NEAR FUTURE Example 2, which uses the Par-measure to increase the loudness of acoustic signals while keeping the perceived distortion limited. This example is directly based on the work done by Jeannerot et al. in [2] and, in my opinion, is a very nice example of how to use the Par-measure inside an optimisation framework.
+- The MATLAB code ``example1_basics.m``, which shows the functionality of the code;
+- TO BE ADDED IN THE NEAR FUTURE The MATLAB code ``example2_loudness_increase.m``, which uses the Par-measure to increase the loudness of acoustic signals while keeping the perceived distortion limited. This example is directly based on the work done by Jeannerot et al. in [2] and, in my opinion, is a very nice example of how to use the Par-measure inside an optimisation framework.
 
 [1] van de Par, S., Kohlrausch, A., Heusdens, R. et al. A Perceptual Model for Sinusoidal Audio Coding Based on Spectral Integration. EURASIP J. Adv. Signal Process. 2005, 317529 (2005). https://doi.org/10.1155/ASP.2005.1292
 
