@@ -11,8 +11,8 @@ close all
 % Define settings used in Par; calibrate Par %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Fs = 48000;                 %[Hz],  Sampling frequency
-Tframe = 0.04;              %[s],   the time of the input frames
-x_ref = 1; x_dB_ref = 65;   %[-],[dB SPL]; the reference value in digital and physical domain
+Tframe = 0.4;              %[s],   the time of the input frames
+x_ref = 1; x_dB_ref = 70;   %[-],[dB SPL]; the reference value in digital and physical domain
 F_cal = 1000;               %[Hz],  The calibration frequency. 
 Ng = 64;                    %[-],   The number of gammatone filters used
 

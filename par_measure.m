@@ -1,11 +1,11 @@
 %Author:    Dimme de Groot
-%Date:      19-03-2024
+%Date:      May 2024
 %Descr:     This class implements the perceptual distortion measure as described in [1]. I refer to this distortion measure as the Par-measure, after the first author. 
 %           Some more details can be found in [2, 3, 4, 5]
 %
 %Usage:     Initialize the class as:
 %               Par_measure = par_measure(Fs, Tframe, x_ref, x_dB_ref, F_cal, Ng)
-%           Compute the masking curves as:       
+%           Compute the masking curve and weighting curves as:       
 %               [maskcurve, maskcurve_spl, p_par] = par_measure.comp_maskcurve(masker)
 %           Plot the masking curve as:           
 %               Par_measure.plot_maskcurve(masker)
@@ -22,8 +22,8 @@
 %               F_cal:      [Hz], a calibration frequency.                                              (typically 1000 Hz)
 %               Ng:         [-], the number of gammatone filters used.                                  (typically 32 to 64)
 %               
-%               masker:         the discrete-time domain signal (masker) of length Nframe 
-%               disturbance:    the discrete-time domain signal (distrubance) of length Nframe, optional! 
+%               masker:         the discrete time-domain signal (masker) of length Nframe 
+%               disturbance:    the discrete time-domain signal (distrubance) of length Nframe, optional! 
 %                                          
 %Outputs:       maskcurve:      [-], the double sided masking curve. I dont really know a scenario where this one is usefull to view
 %               maskcurve_spl:  [dB SPL], the single sided masking curve in dB SPL
@@ -105,7 +105,7 @@ classdef par_measure
 
         %The outer middle ear filter of Par. [3, p. 23]. Note that this is just the threshold in quiet
         function h_hat_om = methodH_hat_om(obj)                                     
-            f = obj.freq_ax;                                                                %Note: equation only holds for nonnegative 
+            f = abs(obj.freq_ax);                                                           %Note: equation only holds for nonnegative 
             Tq = 3.64*(f/1000).^(-0.8)-6.5*exp(-0.6*(f/1000-3.3).^2)+10^(-3)*(f/1000).^4;   %Threshold in quit [dB SPL]
             Tq = Tq -  20*log10(obj.alpha_ov_p0);                                           %Go from dB SPL to dB
             h_hat_om = 10.^-(Tq/20);                                                        %From dB to ampltiude       
@@ -114,10 +114,10 @@ classdef par_measure
         %The Gammatone filters [1], [4]
         function h_hat_gamma = methodH_hat_gamma(obj)
             nu = 4;                                             %the filter order
-            kappa = 2^(nu-1)*factorial(nu-1)/(pi*dfac(2*nu-3)); %normalisation term
-   
-            f = abs(obj.freq_ax);         
-            fc = spacing(obj.Fs, obj.Ng);
+            kappa = 2^(nu-1)*factorial(nu-1)/(pi*dfac(2*nu-3)); %normalisation term      
+            fc = spacing(obj.Fs, obj.Ng);                       %spacing between the different center frequencies of the gammatone filters
+    
+            f = abs(obj.freq_ax);   
             
             h_hat_gamma = zeros(obj.Ng, obj.Nframe/2+1);        %single-sided
 
@@ -205,7 +205,17 @@ classdef par_measure
         end
 
         %Functions for users of the measure
-        function [maskcurve, maskcurve_spl, p_par] = comp_maskcurve(obj, x)
+        function [maskcurve, maskcurve_spl, p_par] = comp_maskcurve(obj, x, flag_low_freq, threshold)
+            if nargin == 2
+                flag_low_freq = true;
+            end
+            if nargin == 3 && ~flag_low_freq
+                threshold = 30;%Hz
+                [~, INDXthresh] = min(abs(obj.freq_ax-threshold));
+            end
+            if nargin == 4 && ~flag_low_freq
+                [~, INDXthresh] = min(abs(obj.freq_ax-threshold));
+            end
             x = x(:).'; %ensure row
             x_hat = fft(x)/length(x);
         
@@ -223,6 +233,13 @@ classdef par_measure
             p_par = sqrt(gsqr_DS)/(obj.Nframe);                 %The division by obj.Nframe is needed due to FFT stuff. It could also be part of the calibration procedure.
             maskcurve = 1./sqrt(gsqr_DS);                       %DOUBLE SIDED, [-]     
             maskcurve_spl = 20*log10(1./sqrt(gsqr_SS))+20*log10(obj.alpha_ov_p0);    %SINGLE SIDED, [dB SPL]
+        
+            if ~flag_low_freq
+                p_par(1:INDXthresh) = max(p_par);
+                if INDXthresh ~= 0
+                    p_par(end-INDXthresh+2:end) = max(p_par);
+                end
+            end
         end
     
         function A_digital = physical_to_digital(obj, A_SPL) %digital <--> physical representation
