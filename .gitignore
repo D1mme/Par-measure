@@ -1,4 +1,4 @@
-DATA2/**
-Data/**
-example2*
-*.wav
+Data/figures/*
+Data/perceptual/*
+example2b_hard_clipping*
+
