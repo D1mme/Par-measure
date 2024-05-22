@@ -27,6 +27,7 @@
 %               
 %               masker:         the discrete time-domain signal (masker) of length Nframe 
 %               disturbance:    the discrete time-domain signal (distrubance) of length Nframe, optional! 
+%               threshold:      the threshold [Hz] below which the values of p_par should be set high artificially. 
 %                                          
 %Outputs:       maskcurve:      [-], the double sided masking curve. I dont really know a scenario where this one is usefull to view
 %               maskcurve_spl:  [dB SPL], the single sided masking curve in dB SPL
