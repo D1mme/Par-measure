@@ -7,6 +7,9 @@
 %               Par_measure = par_measure(Fs, Tframe, x_ref, x_dB_ref, F_cal, Ng)
 %           Compute the masking curve and weighting curves as:       
 %               [maskcurve, maskcurve_spl, p_par] = par_measure.comp_maskcurve(masker)
+%           In some scenarios, it might be convenient to set all values of p_par below a certain frequency high. In that case you can use
+%               [maskcurve, maskcurve_spl, p_par] = par_measure.comp_maskcurve(masker, false, threshold)
+%               with threshold the frequency value below which p_par is set high
 %           Plot the masking curve as:           
 %               Par_measure.plot_maskcurve(masker)
 %           Plot the masking curve and the disturbance as               
@@ -237,7 +240,7 @@ classdef par_measure
             if ~flag_low_freq
                 p_par(1:INDXthresh) = max(p_par);
                 if INDXthresh ~= 0
-                    p_par(end-INDXthresh+2:end) = max(p_par);
+                    p_par(end-INDXthresh+2:end) = 1000*max(p_par);
                 end
             end
         end
