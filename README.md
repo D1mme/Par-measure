@@ -12,8 +12,10 @@ This repository includes:
 - A report which explains the background of the Par-measure, the functionality of the code and the provided examples;
 - The MATLAB code ``par_measure.m`` which can be used to compute the masking curves;
 - The MATLAB code ``example1_basics.m``, which shows the functionality of the code;
-- The MATLAB code ``example2_loudness_increase.m``, which uses the Par-measure to increase the loudness of acoustic signals while keeping the perceived distortion limited. This example is directly based on the work done by Jeannerot et al. in [2] and, in my opinion, is a nice example of how to use the Par-measure inside an optimisation framework.
-	- The .wav files corresponding to ``example_2_loudness_increase.m`` can be found in the Data folder.
+- The MATLAB code ``example2a_loudness_increase.m``, which uses the Par-measure to increase the loudness of acoustic signals while keeping the perceived distortion limited. This example is directly based on the work done by Jeannerot et al. in [2] and, in my opinion, is a nice example of how to use the Par-measure inside an optimisation framework;
+- The MATLAB code ``example2b_hard_clipping.m``, which uses hard clipping to perform the loudness icnrease of acoustic signals;
+- The .wav files corresponding to `example_2a_loudness_increase.m` and `example_2b_hard_clipping.m` can be found in the Data folder. The files `loudness_hard_<>.wav` correspond to hard clipping with parameter `<>`. The files `loudness_percep_<>.wav` correspond to using the Par-measure with parameter $d$ equal to `<>`. I did not know of an easy way to match the two types of aprameters, so the best suggestion is just to listen to a few and try to compare the perceived distortion with the perceived loudness increase.
+
 ## Contact
 Feel free to leave a message in case you have questions, find mistakes, or have any other comments! You can either use the GitHub or send an E-mail to d.c.c.j.degroot@tudelft.nl. 
 
