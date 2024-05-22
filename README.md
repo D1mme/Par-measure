@@ -1,6 +1,6 @@
 # Par-measure
 In this repository you can find the MATLAB code for a perceptual distortion measure based on auditory masking. Such a measure can predict if a human can notice the difference between two acoustic signals. 
-In particular, this code reflects my interpretation of the distortion measure proposed by Van de Par et al. in [1]. I refer to it as the Par-measure. The major strength of the Par-measure is that, once the masker is fixed, it can be expressed as a weighted L2 norm of the disturbance. This allows for incorporating the measure in optimisation problems in which it is important to keep the compuational-complexity limited.
+In particular, this code reflects my interpretation of the distortion measure proposed by Van de Par et al. in [1]. I refer to it as the Par-measure. The major strength of the Par-measure is that, once the masker is fixed, it can be expressed as a weighted $l_2$ norm of the disturbance. This allows for incorporating the measure in optimisation problems in which it is important to keep the compuational-complexity limited.
 
 Concretely, consider an actual acoustic signal $s$ and a reference acoustic signal $s^\star$. The difference between the two signals is $\epsilon=s-s^\star$. The Par-measure computes the distortion as
 
@@ -28,4 +28,4 @@ Acoustic signal processing, perceptual distortion, distortion measure, Par-measu
 ## Bibiliography
 [1] van de Par, S., Kohlrausch, A., Heusdens, R. et al. A Perceptual Model for Sinusoidal Audio Coding Based on Spectral Integration. EURASIP J. Adv. Signal Process. 2005, 317529 (2005). https://doi.org/10.1155/ASP.2005.1292
 
-[2] A. Jeannerot, N. de Koeijer, P. Martínez-Nuevo, M. B. Møller, J. Dyreby and P. Prandoni, "Increasing Loudness in Audio Signals: A Perceptually Motivated Approach to Preserve Audio Quality," ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Singapore, Singapore, 2022, pp. 1001-1005. https://doi.org/10.1109/ICASSP43922.2022.9747589. 
+[2] A. Jeannerot, N. de Koeijer, P. Martínez-Nuevo, M. B. Møller, J. Dyreby and P. Prandoni, "Increasing Loudness in Audio Signals: A Perceptually Motivated Approach to Preserve Audio Quality," ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Singapore, Singapore, 2022, pp. 1001-1005. https://doi.org/10.1109/ICASSP43922.2022.9747589. [ARXIV](https://arxiv.org/abs/2202.08183)
