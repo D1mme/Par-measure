@@ -12,7 +12,7 @@ clear all
 close all
 
 %user setting: maximum distortion dPar, original audio file and window length 
-dPar = 30;                       %Maximum allowable distortion
+dPar = 40;                       %Maximum allowable distortion
 audiofile = "Data/reference.wav"; %Reference aduio file
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,7 +41,7 @@ s_out = fnc_Jeannerot(s_ref, Par_meas, W, dPar);   %solve optimisation problem
 %%%%%%%%%%%%%%%%
 % Store result %
 %%%%%%%%%%%%%%%%
-audiowrite("Data/distortion_"+num2str(dPar)+".wav", s_out/max(abs(s_out)), Fs);        
+audiowrite("Data/loudness_percep_"+num2str(dPar)+".wav", s_out/max(abs(s_out)), Fs);        
 
 %Optimisation problem proposed by [3]
 function s = fnc_Jeannerot(s_ref, par_meas, W, dPar)

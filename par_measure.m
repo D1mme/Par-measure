@@ -217,6 +217,7 @@ classdef par_measure
                 threshold = 30;%Hz
                 [~, INDXthresh] = min(abs(obj.freq_ax-threshold));
             end
+           
             if nargin == 4 && ~flag_low_freq
                 [~, INDXthresh] = min(abs(obj.freq_ax-threshold));
             end
@@ -238,10 +239,12 @@ classdef par_measure
             maskcurve = 1./sqrt(gsqr_DS);                       %DOUBLE SIDED, [-]     
             maskcurve_spl = 20*log10(1./sqrt(gsqr_SS))+20*log10(obj.alpha_ov_p0);    %SINGLE SIDED, [dB SPL]
         
+            %Artificially set weights for low frequencies high (i.e. discourage disturbances in low frequencies	
             if ~flag_low_freq
-                p_par(1:INDXthresh) = max(p_par);
+            	val = max(p_par);
                 if INDXthresh ~= 0
-                    p_par(end-INDXthresh+2:end) = 1000*max(p_par);
+		            p_par(1:INDXthresh) = 100*val;
+                    p_par(end-INDXthresh+2:end) = 100*val;
                 end
             end
         end
