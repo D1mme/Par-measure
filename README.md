@@ -17,15 +17,18 @@ This repository includes:
 - The .wav files corresponding to `example_2a_loudness_increase.m` and `example_2b_hard_clipping.m` can be found in the Data folder. The files `loudness_hard_<>.wav` correspond to hard clipping with parameter `<>`. The files `loudness_percep_<>.wav` correspond to using the Par-measure with parameter $d$ equal to `<>`. I do not know an easy way to compare the two types of parameters, so the best approach is to listen to a few audio files and try to compare the perceived distortion and the perceived loudness increase.
 
 ## Contact
-Feel free to leave a message in case you have questions, find mistakes, or have any other comments! You can either use the GitHub or send an E-mail to d.c.c.j.degroot@tudelft.nl. 
+Feel free to leave a message in case you have questions, find mistakes, or have any other comments! 
 
 ## Dependencies
 The code was tested on MATLAB R2023b and MATLAB R2024b on Ubuntu 23.10. I think the Par-measure can be used using default MATLAB functionality, but if I notice that certain packages are needed I will list them here. 
 
-To run Example 2, you need [CVX](https://cvxr.com/cvx/). It should be straightforward to rewrite the examples to use other optimisation packages such as [YALMIP](https://yalmip.github.io/) or [CVXPY](https://www.cvxpy.org/).
+To run Example 2, you need [CVX](https://cvxr.com/cvx/). It should be straightforward to rewrite the examples to use other optimisation packages such as [YALMIP](https://yalmip.github.io/) or [CVXPY](https://www.cvxpy.org/), though the latter requires interfacing with Python.
 
 ## Keywords
 Acoustic signal processing, perceptual distortion, distortion measure, Par-measure, psychoacoustical modelling, auditory masking
+
+## Note
+There is also a Python implementation by Niels de Koeijer (Bang & Olufsen)!! See [link](https://github.com/nielsdekoeijer/libdetectability). This implementation can be used in PyTorch as a loss function. 
 
 ## Bibiliography
 [1] van de Par, S., Kohlrausch, A., Heusdens, R. et al. A Perceptual Model for Sinusoidal Audio Coding Based on Spectral Integration. EURASIP J. Adv. Signal Process. 2005, 317529 (2005). https://doi.org/10.1155/ASP.2005.1292
