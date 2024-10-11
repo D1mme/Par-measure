@@ -13,8 +13,9 @@ close all
 
 %user setting: maximum distortion dPar, original audio file and window length 
 dPar = 40;                       %Maximum allowable distortion
-audiofile = "Data/reference.wav"; %Reference aduio file
-
+example = "Example_audio_1";
+audiofile = "Data/" + example + "/reference.wav"; %Reference audio file
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Initialise problem setup %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,11 +42,11 @@ s_out = fnc_Jeannerot(s_ref, Par_meas, W, dPar);   %solve optimisation problem
 %%%%%%%%%%%%%%%%
 % Store result %
 %%%%%%%%%%%%%%%%
-audiowrite("Data/loudness_percep_"+num2str(dPar)+".wav", s_out/max(abs(s_out)), Fs);        
+audiowrite("Data/" + example + "/loudness_percep_"+num2str(dPar)+".wav", s_out/max(abs(s_out)), Fs);        
 
-%Optimisation problem proposed by [3]
+
 function s = fnc_Jeannerot(s_ref, par_meas, W, dPar)
-    %this function computes one instance of the optimisation problem for increased loudness
+    %this function computes one instance of the optimisation problem proposed by [3] for increased loudness
     [~, ~, p_par] = par_meas.comp_maskcurve(s_ref, false, 30);   %Compute masking curve
     Lwin = length(p_par);
     P_par = diag(p_par);  %Put masking curve on a diagonal matrix  

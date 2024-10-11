@@ -5,13 +5,14 @@ clear all
 close all
 
 %Select audiofile
-example = "Example_audio_2";
+example = "Example_audio_1";
 audiofile = "Data/" + example + "/reference.wav";
 
 %Parameters
 lambda = 1; %maximum ampltidue
 beta = 3;   %desired increase
 
+for beta = 
 %Read audio file and ampltify to desired level
 [s_ref, Fs] = audioread(audiofile); 
 s_loud = s_ref*beta;
