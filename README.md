@@ -15,8 +15,8 @@ This repository includes:
 - The MATLAB code ``example2a_loudness_increase.m``, which uses the Par-measure to increase the loudness of acoustic signals while keeping the perceived distortion limited. This example is directly based on the work done by Jeannerot et al. in [2] and, in my opinion, is a nice example of how to use the Par-measure inside an optimisation framework;
 - The MATLAB code ``example2b_hard_clipping.m``, which uses hard clipping to perform the loudness icnrease of acoustic signals;
 - The .wav files corresponding to `example_2a_loudness_increase.m` and `example_2b_hard_clipping.m` can be found in the `Data` folder. As reference files I used two different signals. The results of the first signal can be found in `Data/Example_audio_1` and the results for the second signal are found in `Data/Example_audio_2`. The files `loudness_hard_<>.wav` correspond to hard clipping with parameter `<>`. The files `loudness_percep_<>.wav` correspond to using the Par-measure with parameter $d$ equal to `<>`. 
- - I do not know an easy way to compare the two types of parameters, so the best approach is to listen to a few audio files and try to compare the perceived distortion and the perceived loudness increase.
- - Note that the maximum amplitude of the audio in each file is equal! 
+	- I do not know an easy way to compare the two types of parameters, so the best approach is to listen to a few audio files and try to compare the perceived distortion and the perceived loudness increase.
+	- Note that the maximum amplitude of the audio in each file is equal! 
 
 ## Contact
 Feel free to leave a message in case you have questions, find mistakes, or have any other comments! 
