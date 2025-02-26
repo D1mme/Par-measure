@@ -29,10 +29,14 @@ To run Example 2, you need [CVX](https://cvxr.com/cvx/). It should be straightfo
 ## Keywords
 Acoustic signal processing, perceptual distortion, distortion measure, Par-measure, psychoacoustical modelling, auditory masking
 
-## Note
-There is also a Python implementation by Niels de Koeijer (Bang & Olufsen)!! See [link](https://github.com/nielsdekoeijer/libdetectability). This implementation can be used in PyTorch as a loss function. 
+## Notes
+- There is also a Python implementation by Niels de Koeijer (Bang & Olufsen)!! See [link](https://github.com/nielsdekoeijer/libdetectability). This implementation can be used in PyTorch as a loss function. 
+- We used this implementation of the Par-measure in "Loudspeaker Beamforming to Enhance Speech Recognition Performance of Voice Driven Applications", to appear at ICASSP 2025, see [3].
+
 
 ## Bibiliography
-[1] van de Par, S., Kohlrausch, A., Heusdens, R. et al. A Perceptual Model for Sinusoidal Audio Coding Based on Spectral Integration. EURASIP J. Adv. Signal Process. 2005, 317529 (2005). https://doi.org/10.1155/ASP.2005.1292
+[1] van de Par, S., Kohlrausch, A., Heusdens, R. et al. A Perceptual Model for Sinusoidal Audio Coding Based on Spectral Integration. EURASIP J. Adv. Signal Process. 2005, 317529 (2005). [DOI](https://doi.org/10.1155/ASP.2005.1292)
 
 [2] A. Jeannerot, N. de Koeijer, P. Martínez-Nuevo, M. B. Møller, J. Dyreby and P. Prandoni, "Increasing Loudness in Audio Signals: A Perceptually Motivated Approach to Preserve Audio Quality," ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Singapore, Singapore, 2022, pp. 1001-1005. https://doi.org/10.1109/ICASSP43922.2022.9747589. Alternative [ARXIV](https://arxiv.org/abs/2202.08183) link.
+
+[3] Dimme de Groot, Baturalp Karslioglu, Odette Scharenborg and Jorge Martinez, "Loudspeaker Beamforming to Enhance Speech Recognition Performance of Voice Driven Applications", 2025. [ARXIV preprint](https://doi.org/10.48550/arXiv.2501.08104)
