@@ -288,7 +288,7 @@ classdef par_measure
                 xlabel('Frequency [Hz]')
                 ylabel('Magnitude [dB SPL]')
                 ylim([-10 100])
-                xlim([50 16000])
+                xlim([20 16000])
             else
                 figure
                 semilogx(obj.freq_ax, Tq, 'linewidth', 2)
@@ -300,7 +300,7 @@ classdef par_measure
                 xlabel('Frequency [Hz]')
                 ylabel('Magnitude [dB SPL]')
                 ylim([-10 100])
-                xlim([50 16000])
+                xlim([20 16000])
 
             end
         end

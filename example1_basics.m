@@ -38,6 +38,9 @@ masker0 = 0*sin(2*pi*1000*t);               %[-], -infty dB SPL sinusoid (i.e. a
 disturbance52_1000 = A52*sin(2*pi*1000*t);  %[-], 52 dB SPL sinusoid of 1000 Hz
 disturbance52_1200 = A52*sin(2*pi*1200*t);  %[-], 52 dB SPL sinusoid of 1200 Hz
 
+masker_noise = randn(length(t),1); masker_noise = masker_noise/mean(masker_noise);
+A30 = Par_measure.physical_to_digital(30);
+masker_noise = masker_noise*A30;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Verify that for a 52 dB SPL disturbance and a 70 dB SPL masker, the Par measure evaluates to 1.                   %
@@ -77,3 +80,7 @@ title({'Predicted masking curve for a 70 dB SPL masker (1000 Hz).'...
 Par_measure.plot_maskcurve(masker70_1000, disturbance52_1200)
 title({'Predicted masking curve for a 70 dB SPL masker (1000 Hz).'...
     'Audible disturbance.'})
+
+%Plot predicted masking curve for noisy input
+Par_measure.plot_maskcurve(masker_noise)
+title({'Predicted masking curve for a noisy signal.'})
